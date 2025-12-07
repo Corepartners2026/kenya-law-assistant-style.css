@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenya Law Assistant - Legal Research Portal</title>
+    
+    <style>
+        /* Essential CSS to remove browser margins and ensure full height/width */
+        html, body {
+            height: 100%; 
+            width: 100%;
+            margin: 0; 
+            padding: 0;
+            overflow: hidden; 
+            box-sizing: border-box; 
+        }
+
+        /* 2. Style the Container for the Botpress Widget */
+        #kenya-law-assistant-container {
+            width: 100vw;   /* 100% of the Viewport Width */
+            height: 100vh;  /* 100% of the Viewport Height */
+        }
+    </style>
+
+    <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script> 
+    <script src="https://files.bpcontent.cloud/2025/12/07/04/20251207043245-LECH8PCK.js" defer></script> 
+
+</head>
+<body>
+
+    <div id="kenya-law-assistant-container">
+        </div>
+
+</body>
+</html>
+
