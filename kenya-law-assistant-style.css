@@ -1,85 +1,95 @@
-﻿/* -------------------------------------------------------------------
-   1. CORE CONTAINER STYLES (MAKING IT A LANDING PAGE)
-------------------------------------------------------------------- */
-
-/* This targets the main chat container wrapper */
-.bpw-layout {
-    /* Full width and height of the parent element (the <div> you embed it in) */
-    width: 100% !important; 
-    height: 100% !important;
-    max-width: none !important; /* Removes the default max width */
-    max-height: none !important; /* Removes the default max height */
-    box-shadow: none !important; /* Removes the chat bubble shadow */
-    border-radius: 0 !important; /* Removes rounded corners for a seamless look */
-    border: none !important; /* Removes any default border */
-}
-
-/* Ensure the webchat content fills the space */
-.bpw-widget-container {
-    width: 100%;
-    height: 100%;
-    /* Override position fixed if necessary for embedding */
-    position: initial !important; 
+/* ---------------------------------------------------------------------- */
+/* 1. BRAND COLORS (Use your Kenya Law Assistant Theme) */
+/* Define variables for easy reuse (optional, but good practice) */
+/* ---------------------------------------------------------------------- */
+:root {
+    /* Deep Forest Green (Primary Brand Color) */
+    --k-law-primary: #1A3E38; 
+    
+    /* Soft Gold/Yellow (Accent Color) */
+    --k-law-accent: #E5C354; 
+    
+    /* Light Grey/Green for background/user input area */
+    --k-law-background: #F4F7F6;
+    
+    /* Text Color */
+    --k-law-text: #222222; 
 }
 
 
-/* -------------------------------------------------------------------
-   2. BRANDING AND COLOR SCHEME (PROFESSIONAL LEGAL THEME)
-------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+/* 2. OVERRIDE HEADER STYLING */
+/* Styles the bar at the top of the chat window */
+/* ---------------------------------------------------------------------- */
 
-/* Header Bar - Using a Deep, Professional Green/Black */
+/* Target the header container */
 .bpw-header-container {
-    background-color: #1A3E38; /* Deep Forest Green (Professional look) */
-    color: white; /* White text for contrast */
-    border-bottom: 3px solid #FFC72C; /* Thin strip of Gold/Yellow (Kenya national colors accent) */
-    font-family: 'Inter', sans-serif; /* Clean, modern font */
-    font-weight: 600;
+    background-color: var(--k-law-primary) !important; /* Deep Forest Green background */
+    color: white !important; /* White text for bot name */
+    border-bottom: 3px solid var(--k-law-accent) !important; /* Gold/Yellow accent line */
+    padding: 15px 20px !important;
 }
 
-/* Chat Messages from the Bot (LexKenya) */
-.bpw-from-bot .bpw-chat-bubble {
-    background-color: #E6F3EE; /* Very light, clean green/gray */
-    color: #333333; /* Dark text for readability */
-    border-radius: 12px 12px 12px 3px; /* Softer corners */
-    max-width: 90%;
+/* Ensure the title text is white and visible */
+.bpw-header-text {
+    color: white !important;
+    font-size: 1.2em !important;
+    font-weight: bold !important;
 }
 
-/* Chat Messages from the User (The Law Student) */
-.bpw-from-user .bpw-chat-bubble {
-    background-color: #005A32; /* Stronger, institutional green */
-    color: white;
-    border-radius: 12px 12px 3px 12px; /* Softer corners */
-    max-width: 90%;
+/* ---------------------------------------------------------------------- */
+/* 3. CHAT BUBBLE STYLING */
+/* Styles the messages from the bot and the user */
+/* ---------------------------------------------------------------------- */
+
+/* Bot Message Bubbles (The Assistant's Messages) */
+.bpw-message-group[data-from-user="false"] .bpw-chat-bubble {
+    background-color: #3C635B !important; /* A slightly lighter green than the header */
+    color: white !important;
+    border-radius: 12px 12px 12px 4px !important; /* Rounded corners */
 }
 
+/* User Message Bubbles (Your Messages) */
+.bpw-message-group[data-from-user="true"] .bpw-chat-bubble {
+    background-color: var(--k-law-background) !important; /* Light background for user input */
+    color: var(--k-law-text) !important;
+    border: 1px solid #D9D9D9 !important; /* Light border */
+    border-radius: 12px 12px 4px 12px !important;
+}
 
-/* -------------------------------------------------------------------
-   3. INPUT COMPOSER (The Search Bar Area)
-------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------- */
+/* 4. COMPOSER (INPUT FIELD) STYLING */
+/* Styles the area where the user types messages */
+/* ---------------------------------------------------------------------- */
 
-/* The entire message input area */
+/* Main composer container (where input and send button are) */
 .bpw-composer-container {
-    padding: 15px 20px;
-    border-top: 1px solid #E0E0E0; /* Subtle line above the input */
+    background-color: white !important; 
+    border-top: 1px solid #EEEEEE !important;
 }
 
-/* The actual text input field */
-.bpw-composer-input {
-    border-radius: 25px; /* Pill-shaped input field */
-    border: 1px solid #CCCCCC;
-    padding: 10px 15px;
-    font-size: 16px;
+/* Text input field itself */
+.bpw-text-input {
+    color: var(--k-law-text) !important;
 }
 
-/* Send Button */
+/* Send button */
 .bpw-send-button {
-    color: #005A32; /* Match the primary brand color */
+    color: var(--k-law-accent) !important; /* Gold/Yellow send icon */
 }
 
-/* Optional: Hide the "Powered by Botpress" footer for a cleaner look */
-/* Note: Depending on your Botpress plan, this may not be permitted */
-.bpw-powered-by {
-    display: none !important;
+/* ---------------------------------------------------------------------- */
+/* 5. SUGGESTED ACTION BUTTONS (Optional quick replies) */
+/* ---------------------------------------------------------------------- */
+.bpw-button {
+    background-color: white !important;
+    color: var(--k-law-primary) !important; /* Text is Deep Forest Green */
+    border: 1px solid var(--k-law-primary) !important; /* Green border */
+    border-radius: 8px !important;
 }
 
-
+/* Suggested Action Button Hover/Active State */
+.bpw-button:hover {
+    background-color: var(--k-law-primary) !important;
+    color: white !important;
+}
